@@ -7,7 +7,7 @@ int main(){
 		scanf("%d",&arr[i]);
 		sum +=arr[i];
 	}
-	average=(float)sum/10;
+	average=(float)sum/5;
 	printf("sum=%d\n",sum);
 	printf("average=%.2f\n",average);
 	return 0;
