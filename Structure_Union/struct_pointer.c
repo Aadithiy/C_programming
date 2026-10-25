@@ -1,25 +1,24 @@
 #include<stdio.h>
-struct student
+struct sensor
 {
 	int id;
-	char name[50];
-	float marks;
+	float temp;
+	float humidity;
 };
+void access_update(struct sensor *s,float update)
+{
+	printf("Sensor ID:%d\n",s->id);
+	printf("Initial Temperature:%.2f\n",s->temp);
+	printf("Humidity:%.2f\n",s->humidity);
+	s->temp = update;
+	printf("Upadated Temperature:%.2f\n",s->temp);
+}
 int main()
 {
-	struct student s;
-	struct student *ptr;
-	printf("Enter the ID:");
-	scanf("%d",&s.id);
-	printf("Enter the Name:");
-	scanf("%s",s.name);
-	printf("Enter the Marks:");
-	scanf("%f",&s.marks);
-	ptr = &s;
-	printf("\n---Student Details---\n");
-	printf("ID:%d\n",ptr->id);
-	printf("Name:%s\n",ptr->name);
-	printf("Marks:%.2f\n",ptr->marks);
+	struct sensor s;
+	float update;
+	printf("Enter Sensor ID,Temperature,Humidity,Updated Temperature");
+	scanf("%d %f %f %f",&s.id,&s.temp,&s.humidity,&update);
+	access_update(&s,update);
 	return 0;
 }
-
